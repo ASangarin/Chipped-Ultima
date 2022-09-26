@@ -2270,7 +2270,7 @@
   "block.chipped.special_lantern_2": "Фонарь",
   "block.chipped.special_lantern_3": "Фонарь",
   "block.chipped.special_lantern_4": "Фонарь",
-
+  
   "container.chipped.botanist_workbench": "Верстак ботаника",
   "container.chipped.glassblower": "Стеклодув",
   "container.chipped.carpenters_table": "Стол плотника",
@@ -2278,5 +2278,5 @@
   "container.chipped.mason_table": "Стол каменщика",
   "container.chipped.alchemy_bench": "Алхимическая Стойка",
   "container.chipped.mechanist_workbench": "Стол Механика",
-  "itemGroup.chipped.chipped": "Chipped"
+  "itemGroup.chippedTab": "Chipped"
 }

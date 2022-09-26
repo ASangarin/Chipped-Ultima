@@ -24,48 +24,44 @@ import java.util.Collection;
 import java.util.List;
 
 public class REIChippedPlugin implements REIClientPlugin {
-    @Override
-    public void registerCategories(CategoryRegistry registry) {
-        registry.add(
-                new ChippedRecipeCategory(ChippedBlocks.BOTANIST_WORKBENCH),
-                new ChippedRecipeCategory(ChippedBlocks.GLASSBLOWER),
-                new ChippedRecipeCategory(ChippedBlocks.CARPENTERS_TABLE),
-                new ChippedRecipeCategory(ChippedBlocks.LOOM_TABLE),
-                new ChippedRecipeCategory(ChippedBlocks.MASON_TABLE),
-                new ChippedRecipeCategory(ChippedBlocks.ALCHEMY_BENCH),
-                new ChippedRecipeCategory(ChippedBlocks.MECHANIST_WORKBENCH)
-        );
-    }
+	@Override
+	public void registerCategories(CategoryRegistry registry) {
+		registry.add(new ChippedRecipeCategory(ChippedBlocks.BOTANIST_WORKBENCH), new ChippedRecipeCategory(ChippedBlocks.GLASSBLOWER),
+				new ChippedRecipeCategory(ChippedBlocks.CARPENTERS_TABLE), new ChippedRecipeCategory(ChippedBlocks.LOOM_TABLE),
+				new ChippedRecipeCategory(ChippedBlocks.MASON_TABLE), new ChippedRecipeCategory(ChippedBlocks.ALCHEMY_BENCH),
+				new ChippedRecipeCategory(ChippedBlocks.MECHANIST_WORKBENCH), new ChippedRecipeCategory(ChippedBlocks.CONVERSION_TABLE));
+	}
 
-    @Override
-    public void registerDisplays(DisplayRegistry registry) {
-        RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
-        registerRecipes(recipeManager, registry, ChippedSerializer.BOTANIST_WORKBENCH_TYPE, ChippedBlocks.BOTANIST_WORKBENCH);
-        registerRecipes(recipeManager, registry, ChippedSerializer.CARPENTERS_TABLE_TYPE, ChippedBlocks.CARPENTERS_TABLE);
-        registerRecipes(recipeManager, registry, ChippedSerializer.LOOM_TABLE_TYPE, ChippedBlocks.LOOM_TABLE);
-        registerRecipes(recipeManager, registry, ChippedSerializer.MASON_TABLE_TYPE, ChippedBlocks.MASON_TABLE);
-        registerRecipes(recipeManager, registry, ChippedSerializer.ALCHEMY_BENCH_TYPE, ChippedBlocks.ALCHEMY_BENCH);
-        registerRecipes(recipeManager, registry, ChippedSerializer.MECHANIST_WORKBENCH_TYPE, ChippedBlocks.MECHANIST_WORKBENCH);
-    }
+	@Override
+	public void registerDisplays(DisplayRegistry registry) {
+		RecipeManager recipeManager = Minecraft.getInstance().level.getRecipeManager();
+		registerRecipes(recipeManager, registry, ChippedSerializer.BOTANIST_WORKBENCH_TYPE, ChippedBlocks.BOTANIST_WORKBENCH);
+		registerRecipes(recipeManager, registry, ChippedSerializer.CARPENTERS_TABLE_TYPE, ChippedBlocks.CARPENTERS_TABLE);
+		registerRecipes(recipeManager, registry, ChippedSerializer.LOOM_TABLE_TYPE, ChippedBlocks.LOOM_TABLE);
+		registerRecipes(recipeManager, registry, ChippedSerializer.MASON_TABLE_TYPE, ChippedBlocks.MASON_TABLE);
+		registerRecipes(recipeManager, registry, ChippedSerializer.ALCHEMY_BENCH_TYPE, ChippedBlocks.ALCHEMY_BENCH);
+		registerRecipes(recipeManager, registry, ChippedSerializer.MECHANIST_WORKBENCH_TYPE, ChippedBlocks.MECHANIST_WORKBENCH);
+		registerRecipes(recipeManager, registry, ChippedSerializer.CONVERSION_TABLE_TYPE, ChippedBlocks.CONVERSION_TABLE);
+	}
 
-    private void registerRecipes(RecipeManager recipeManager, DisplayRegistry registry, RecipeType<ChippedRecipe> type, Block block) {
-        final ResourceLocation category = Registry.BLOCK.getKey(block);
-        for (ChippedRecipeCategory.FlattenedRecipe recipe : flatten(recipeManager.getAllRecipesFor(type), CategoryIdentifier.of(category))) {
-            registry.add(recipe);
-        }
-    }
+	private void registerRecipes(RecipeManager recipeManager, DisplayRegistry registry, RecipeType<ChippedRecipe> type, Block block) {
+		final ResourceLocation category = Registry.BLOCK.getKey(block);
+		for (ChippedRecipeCategory.FlattenedRecipe recipe : flatten(recipeManager.getAllRecipesFor(type), CategoryIdentifier.of(category))) {
+			registry.add(recipe);
+		}
+	}
 
-    private static List<ChippedRecipeCategory.FlattenedRecipe> flatten(Collection<ChippedRecipe> recipes, CategoryIdentifier<ChippedRecipeCategory.FlattenedRecipe> category) {
-        List<ChippedRecipeCategory.FlattenedRecipe> flattenedRecipes = new ArrayList<>();
-        for (ChippedRecipe recipe : recipes) {
-            for (HolderSet<Item> tag : recipe.tags()) {
-                var items = tag.stream().filter(Holder::isBound).map(Holder::value).toList();
-                Ingredient ingredient = Ingredient.of(items.stream().map(ItemStack::new));
-                for (Item item : items) {
-                    flattenedRecipes.add(new ChippedRecipeCategory.FlattenedRecipe(ingredient, new ItemStack(item), category));
-                }
-            }
-        }
-        return flattenedRecipes;
-    }
+	private static List<ChippedRecipeCategory.FlattenedRecipe> flatten(Collection<ChippedRecipe> recipes, CategoryIdentifier<ChippedRecipeCategory.FlattenedRecipe> category) {
+		List<ChippedRecipeCategory.FlattenedRecipe> flattenedRecipes = new ArrayList<>();
+		for (ChippedRecipe recipe : recipes) {
+			for (HolderSet<Item> tag : recipe.tags()) {
+				var items = tag.stream().filter(Holder::isBound).map(Holder::value).toList();
+				Ingredient ingredient = Ingredient.of(items.stream().map(ItemStack::new));
+				for (Item item : items) {
+					flattenedRecipes.add(new ChippedRecipeCategory.FlattenedRecipe(ingredient, new ItemStack(item), category));
+				}
+			}
+		}
+		return flattenedRecipes;
+	}
 }

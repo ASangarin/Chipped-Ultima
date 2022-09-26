@@ -2104,11 +2104,19 @@
   "block.chipped.acacia_wood_glass_pane_5": "玻璃板",
   "block.chipped.acacia_wood_glass_pane_6": "玻璃板",
 
+
+
+
+
+
+
+
+
   "container.chipped.botanist_workbench": "植物学家工作台",
   "container.chipped.glassblower": "玻璃吹制器",
   "container.chipped.carpenters_table": "木匠工作台",
   "container.chipped.loom_table": "织布机",
   "container.chipped.mason_table": "石匠工作台",
   "container.chipped.alchemy_bench": "炼金台",
-  "itemGroup.chipped.chipped": "Chipped"
+  "itemGroup.chippedTab": "Chipped"
 }

@@ -4,7 +4,7 @@
 	"textures": {
 		"0": "chipped:block/improved_table_textures",
 		"1": "chipped:block/books",
-		"particle": "chipped:block/improved_table_textures"
+		"particle": "minecraft:block/oak_planks"
 	},
 	"elements": [
 		{

@@ -3,6 +3,7 @@ package com.grimbo.chipped.registry;
 import com.grimbo.chipped.Chipped;
 import com.grimbo.chipped.menus.ChippedMenu;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.MenuType;
 
@@ -17,6 +18,7 @@ public class ChippedMenuType {
 	public static MenuType<ChippedMenu> masonTable;
 	public static MenuType<ChippedMenu> alchemyBench;
 	public static MenuType<ChippedMenu> mechanistWorkbench;
+	public static MenuType<ChippedMenu> conversionTable;
 
 	public static void register() {
 		botanistWorkbench = ScreenHandlerRegistry.registerSimple(new ResourceLocation(Chipped.MOD_ID, "botanist_workbench"),
@@ -33,5 +35,7 @@ public class ChippedMenuType {
 				(id, inventory) -> new ChippedMenu(id, inventory, alchemyBench, ChippedSerializer.ALCHEMY_BENCH_TYPE, ChippedBlocks.ALCHEMY_BENCH));
 		mechanistWorkbench = ScreenHandlerRegistry.registerSimple(new ResourceLocation(Chipped.MOD_ID, "mechanist_workbench"),
 				(id, inventory) -> new ChippedMenu(id, inventory, mechanistWorkbench, ChippedSerializer.MECHANIST_WORKBENCH_TYPE, ChippedBlocks.MECHANIST_WORKBENCH));
+		conversionTable = ScreenHandlerRegistry.registerSimple(new ResourceLocation(Chipped.MOD_ID, "conversion_table"),
+				(id, inventory) -> new ChippedMenu(id, inventory, conversionTable, ChippedSerializer.CONVERSION_TABLE_TYPE, ChippedBlocks.CONVERSION_TABLE));
 	}
 }

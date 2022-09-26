@@ -1,31 +1,10 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " b ",
-    "axa",
-    "aya"
+  "type": "minecraft:crafting_shapeless",
+  "group": "chipped:workbench",
+  "ingredients": [
+    { "tag": "chipped:alchemy_blocks" },
+    { "item": "minecraft:crafting_table" }
   ],
-  "key": {
-    "x": {
-      "item": "minecraft:crafting_table"
-    },
-    "b": {
-      "item": "minecraft:brewing_stand"
-    },
-    "a": {
-      "tag": "minecraft:wooden_slabs"
-    },
-    "y": {
-      "item": "minecraft:enchanting_table"
-
-
-    }
-
-
-
-
-
-  },
   "result": {
     "item": "chipped:alchemy_bench",
     "count": 1

@@ -6,6 +6,7 @@
   "block.chipped.alchemy_bench": "Scholar's Table",
   "block.chipped.mechanist_workbench": "Tinkerer's Table",
   "block.chipped.mason_table": "Mason's Table",
+  "block.chipped.conversion_table": "Conversion Table",
   "block.chipped.black_wool_1": "Black Wool",
   "block.chipped.black_wool_2": "Black Wool",
   "block.chipped.black_wool_3": "Black Wool",
@@ -2489,7 +2490,7 @@
   "block.chipped.pumpkin_11": "Pumpkin",
   "block.chipped.pumpkin_12": "Pumpkin",
   "block.chipped.pumpkin_13": "Pumpkin",
-
+  
   "block.chipped.cobweb_1": "Cobweb",
   "block.chipped.cobweb_2": "Cobweb",
   "block.chipped.cobweb_3": "Cobweb",
@@ -2508,5 +2509,6 @@
   "container.chipped.mason_table": "Mason's Table",
   "container.chipped.alchemy_bench": "Scholar's Table",
   "container.chipped.mechanist_workbench": "Tinkerer's Table",
-  "itemGroup.chipped.chipped": "Chipped"
+  "container.chipped.conversion_table": "Conversion Table",
+  "itemGroup.chippedTab": "Chipped"
 }
